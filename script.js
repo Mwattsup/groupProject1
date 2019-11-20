@@ -7,7 +7,6 @@ var categoryMealURL = 'https://www.themealdb.com/api/json/v2/' + apiKey + '/filt
 
 
 var alcoholType = '';
-
 var randomDrinksURL = 'https://www.thecocktaildb.com/api/json/v2/' + apiKey + '/randomselection.php';
 var alcoholTypeURL = 'https://www.thecocktaildb.com/api/json/v2/' + apiKey + '/search.php?i=' + alcoholType;
 
@@ -45,7 +44,6 @@ function randomDrinks() {
         divName.append(displayInfo);
     })
 }
-
 
 function searchMealName() {
     event.preventDefault();
