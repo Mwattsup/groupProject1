@@ -22,12 +22,23 @@ function searchDrinkName() {
         url: drinkNameURL,
         method: 'GET'
     }).then(function (response) {
-        console.log(response.drinks);
+        
         var mainContent = $('#mainContent');
-        var displayInfo = $("<p id='drinkName'>").text(JSON.stringify(response.drinks[0].strDrink));
-        mainContent.append(displayInfo);
+        var displayInfo = $("<p id='drinkName'>").text(JSON.stringify(response.drinks));
+        var allDrinks = $("<p id='allDrinks'>").text(JSON.stringify(response.drinks[0].strIngredient1));
+        
+        for (i = 0; i < response.length; i++){
+            
+        }
+        
+        // mainContent.append(displayInfo);
+        mainContent.append(allDrinks)
+       
+        console.log(response.drinks[0])
+        
     })
-    console.log(document.getElementById('userInput').value);
+    console.log(drinkName)
+        
 }
 
 function randomDrinks() {
