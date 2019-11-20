@@ -16,16 +16,16 @@ function searchDrinkName() {
     var drinkName = document.getElementById('userInput').value;
     var drinkNameURL = 'https://www.thecocktaildb.com/api/json/v2/' + apiKey + '/search.php?s=' + drinkName;
 
-    $('#divId').empty();
+    $('#mainContent').empty();
 
     $.ajax({
         url: drinkNameURL,
         method: 'GET'
     }).then(function (response) {
         console.log(response.drinks);
-        var divName = $('#divId');
+        var mainContent = $('#mainContent');
         var displayInfo = $("<h1 id='test'>").text(JSON.stringify(response.drinks));
-        divName.append(displayInfo);
+        mainContent.append(displayInfo);
     })
     console.log(document.getElementById('userInput').value);
 }
