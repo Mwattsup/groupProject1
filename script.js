@@ -24,7 +24,7 @@ function searchDrinkName() {
     }).then(function (response) {
         console.log(response.drinks);
         var mainContent = $('#mainContent');
-        var displayInfo = $("<h1 id='test'>").text(JSON.stringify(response.drinks));
+        var displayInfo = $("<p id='drinkName'>").text(JSON.stringify(response.drinks[0].strDrink));
         mainContent.append(displayInfo);
     })
     console.log(document.getElementById('userInput').value);
@@ -33,35 +33,35 @@ function searchDrinkName() {
 function randomDrinks() {
     event.preventDefault();
 
-    $('#divId').empty();
+    $('#mainContent').empty();
 
     $.ajax({
         url: randomDrinksURL,
         method: 'GET'
     }).then(function (response) {
-        var divName = $('#divId');
-        var displayInfo = $("<h2 id='test'>").text(JSON.stringify(response));
-        divName.append(displayInfo);
+        var mainContent = $('#mainContent');
+        var displayInfo = $("<p id='test'>").text(JSON.stringify(response));
+        mainContent.append(displayInfo);
     })
 }
 
 function searchMealName() {
     event.preventDefault();
 
-    var mealSpaceName = document.getElementById('mealSearch').value
+    var mealSpaceName = document.getElementById('userInput').value;
     var mealName = mealSpaceName.replace(/ /g, '_');
     var mealNameURL = 'https://www.themealdb.com/api/json/v2/' + apiKey + '/search.php?s=' + mealName;
 
-    $('#divId').empty();
+    $('#mainContent').empty();
 
     $.ajax({
         url: mealNameURL,
         method: 'GET'
     }).then(function (response) {
         console.log(response.meals[0]);
-        var divName = $('#divId');
-        var displayInfo = $("<h3 id='test'>").text(JSON.stringify(response.meals[0], null, 2));
-        divName.append(displayInfo);
+        var mainContent = $('#mainContent');
+        var displayInfo = $("<p id='test'>").text(JSON.stringify(response.meals[0], null, 2));
+        mainContent.append(displayInfo);
     })
     console.log(mealName);
 }
@@ -69,17 +69,18 @@ function searchMealName() {
 function randomMeals() {
     event.preventDefault();
 
-    $('#divId').empty();
+    $('#mainContent').empty();
 
     $.ajax({
         url: randomMealsURL,
         method: 'GET'
     }).then(function (response) {
-        var divName = $('#divId');
-        var displayInfo = $("<h4 id='test'>").text(JSON.stringify(response));
-        divName.append(displayInfo);
+        var mainContent = $('#mainContent');
+        var displayInfo = $("<p id='test'>").text(JSON.stringify(response));
+        mainContent.append(displayInfo);
     });
 }
+
 $(document).ready(function(){
    
     event.preventDefault();
@@ -87,7 +88,11 @@ $(document).ready(function(){
   });
 
 
-$('#searchButton').on('click', searchDrinkName);
-$('#mealBtn').on('click', searchMealName);
-$('#rndmDrinkBtn').on('click', randomDrinks);
-$('#rndmMealBtn').on('click', randomMeals);
+$('#searchButton').on('click', function(){
+    var optionValue = document.getElementById('dropDownBar').value;
+    if(optionValue === '1') {
+        searchMealName();
+    }else if(optionValue === '2'){
+        searchDrinkName();
+    }
+})

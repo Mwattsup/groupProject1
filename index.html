@@ -1,132 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-     <link rel="stylesheet"  href="style.css">
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-      
-      
-      
-      <title>Ask Marijuana</title>
-      <style>
-      body{
-background-image: url(img/Mar.jpg);
-background-size: cover;
-background-position: center;
-min-height: 1000px;
-      }
 
-      #main-body{
-          height: 900px;
-      }
-      #label1{
-font-size: 18px;
-color:black;
-      }
-      </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    </head>
 
-    <body>
-        <header>
 
-                <nav class="nav-wrapper teal accent-4">
-                        <div class="container">
-                             <a href="#" data-activates="mobile-demo" class="button-collapse show-on-med-and-down">
-                                 <i class="material-icons">menu</i></a>
-                            <a href="#" class="brand-logo">Ask Marijuana </a>
-                            <ul class="side-nav" id="mobile-demo">
-                                         <ul class="right">
-                                         <li> <a href="index.html">Home</a></li>
-                                          <li> <a href="about.html">About</a></li>
-                                          <li> <a href="contact.html">Contact</a></li>
-                                       </ul>
-                                     </ul>
-                                 <ul class="right hide-on-med-and-down">
-                                     <li> <a href="index.html">Home</a></li>
-                                     <li> <a href="about.html">About</a></li>
-                                     <li> <a href="contact.html">Contact</a></li>
-                                 </ul>
-         
-                        </div>
-                     
-                    </nav>   
-         
-        </header>
+    <title>Food and Drinks</title>
+    <style>
+        body {
+            background-image: url(img/Mar.jpg);
+            background-size: cover;
+            background-position: center;
+            min-height: 1000px;
+        }
 
-        <div class="container" id="main-body">
-                <div class="card-panel " class="z-depth-5">
-                <span class="black-text">Search</span>
-                
-                    
+        #main-body {
+            height: 900px;
+        }
+
+        #label1 {
+            font-size: 18px;
+            color: black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+
+        <nav class="nav-wrapper teal accent-4">
+            <div class="container">
+                <a href="#" data-activates="mobile-demo" class="button-collapse show-on-med-and-down">
+                    <i class="material-icons">menu</i></a>
+                <a href="#" class="brand-logo">Food and Drink</a>
+                <ul class="side-nav" id="mobile-demo">
+                    <ul class="right">
+                        <li> <a href="index.html">Home</a></li>
+                        <li> <a href="about.html">About</a></li>
+                        <li> <a href="contact.html">Contact</a></li>
+                    </ul>
+                </ul>
+                <ul class="right hide-on-med-and-down">
+                    <li> <a href="index.html">Home</a></li>
+                    <li> <a href="about.html">About</a></li>
+                    <li> <a href="contact.html">Contact</a></li>
+                </ul>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <div class="container" id="main-body">
+        <div class="card-panel " class="z-depth-5">
+            <span class="black-text">Search</span>
+
+
             <div class="row center">
                 <div class="col s12 l4  ">
-                </br>
-                </br>
-                        
-                        
-                        <select class="browser-default">
-                          <option value="" disabled selected>Choose your option</option>
-                          <option value="1">Option 1</option>
-                          <option value="2">Option 2</option>
-                          <option value="3">Option 3</option>
-                        </select>
+                    </br>
+                    </br>
+
+                    
+                    <select class="browser-default" id='dropDownBar' name="optionBar">
+                        <option value="1" selected>name of food</option>
+                        <option value="2">name of drink</option>
+                        <option value="3">yee yee</option>
+                    </select>
+                    <label for="optionBar">Select an Option</label>
                 </div>
-            </br>
-          
-                   <div class="input-field col s12 l6 grey lighten-5 indigo text-darken-4">
-                        <i class="material-icons prefix">search</i>
+                </br>
+
+                <div class="input-field col s12 l6 grey lighten-5 indigo text-darken-4">
+                    <i class="material-icons prefix">search</i>
                     <input id="userInput" type="text" class="validate">
                     <label for="search">Search</label>
-                  </div>
+                </div>
                 </br>
-                  <button class="btn waves-effect waves-light" type="submit" id="searchButton" name="action">Search
-                        <i class="material-icons right">search</i>
-                      </button>
-             </div>
+                <button class="btn waves-effect waves-light" type="submit" id="searchButton" name="action">Search
+                    <i class="material-icons right">search</i>
+                </button>
             </div>
+        </div>
 
 
 
-            <div class="row center" >
-                    <div class="col s12 l12">
-                            <div class="card-panel" id="mainContent" class="z-depth-5">
-                                    <span class="black-text">See below Articles</span>
-                                    <hr>
-                                    <h2>What is a paragraph?</h2>
-                                    <p>
-                                            Paragraphs are the building blocks of papers. Many students define paragraphs in terms of length: a paragraph is a group of at least five sentences, a paragraph is half a page long, etc. In reality, though, the unity and coherence of ideas among sentences is what constitutes a paragraph. A paragraph is defined as “a group of sentences or a single sentence that forms a unit” (Lunsford and Connors 116). Length and appearance do not determine whether a section in a paper is a paragraph. For instance, in some styles of writing, particularly journalistic styles, a paragraph can be just one sentence long. Ultimately, a paragraph is a sentence or group of sentences that support one main idea. In this handout, we will refer to this as the “controlling idea,” because it controls what happens in the rest of the paragraph.</p>
-                    </div>
+        <div class="row center">
+            <div class="col s12 l12">
+                <div class="card-panel" id="mainContent" class="z-depth-5">
+                    <span class="black-text">See below Articles</span>
+                    <hr>
                 </div>
             </div>
         </div>
-        
+    </div>
 
 
 
 
 
-        <footer class="page-footer teal accent-4">
-<div class="container">
-    <dvi class="row">
-        <div class="col s12 l6">
-            <P>Copyright</P>
+
+    <footer class="page-footer teal accent-4">
+        <div class="container">
+            <dvi class="row">
+                <div class="col s12 l6">
+                    <P>Copyright</P>
+                </div>
+            </dvi>
         </div>
-    </dvi>
-</div>
-            </footer>
-            
+    </footer>
 
-           <script src="http://code.jquery.com/jquery-latest.min.js"></script> 
-           <!-- Compiled and minified JavaScript --> 
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script> 
-           <script src="script.js"></script>
-               
-    </body>
-    
-        
-  </html>
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+
+</html>
