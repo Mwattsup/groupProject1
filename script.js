@@ -13,7 +13,7 @@ var alcoholTypeURL = 'https://www.thecocktaildb.com/api/json/v2/' + apiKey + '/s
 function searchDrinkName() {
     event.preventDefault()
 
-    var drinkName = document.getElementById('drinkSearch').value;
+    var drinkName = document.getElementById('userInput').value;
     var drinkNameURL = 'https://www.thecocktaildb.com/api/json/v2/' + apiKey + '/search.php?s=' + drinkName;
 
     $('#divId').empty();
@@ -27,7 +27,7 @@ function searchDrinkName() {
         var displayInfo = $("<h1 id='test'>").text(JSON.stringify(response.drinks));
         divName.append(displayInfo);
     })
-    console.log(document.getElementById('drinkSearch').value);
+    console.log(document.getElementById('userInput').value);
 }
 
 function randomDrinks() {
@@ -80,9 +80,14 @@ function randomMeals() {
         divName.append(displayInfo);
     });
 }
+$(document).ready(function(){
+   
+    event.preventDefault();
+  $(".button-collapse").sideNav();
+  });
 
 
-$('#drinkBtn').on('click', searchDrinkName);
+$('#searchButton').on('click', searchDrinkName);
 $('#mealBtn').on('click', searchMealName);
 $('#rndmDrinkBtn').on('click', randomDrinks);
 $('#rndmMealBtn').on('click', randomMeals);
