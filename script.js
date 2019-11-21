@@ -21,28 +21,54 @@ function searchDrinkName() {
     $.ajax({
         url: drinkNameURL,
         method: 'GET'
+
     }).then(function (response) {
         
         var mainContent = $('#mainContent');
         var displayInfo = $("<p id='drinkName'>").text(JSON.stringify(response.drinks));
+<<<<<<< HEAD
+
+        for (i = 0; i < response.drinks.length; i++){
+        var allDrinks = $("<p id='allDrinks'>").text(JSON.stringify(response.drinks[i].strIngredient1));
+        
+        mainContent.append(allDrinks) 
+        
+
+=======
         
         for (i = 0; i < response.drinks.length; i++){
             var allDrinks = $("<p id='allDrinks'>").text(JSON.stringify(response.drinks[i].strIngredient1));
             console.log(response.drinks[i])
             mainContent.append(allDrinks)
+>>>>>>> b9643e0cbd7c048b0f4ee1aadb79c8ab96c315a3
         }
+        // for (i = 0; i < response.drinks.strIngredient.length; i++){
+        //     var drinkIngredients = $("<p id='allIngredients'>").text(JSON.stringify(response.drinks.strIngredient[i]))
+        //     mainContent.append(drinkIngredients)
+        //     console.log(drinkIngredients[i])
+
+        // }
+
         
+<<<<<<< HEAD
+        console.log(drinkName) 
+        // console.log(drinkIngredients[i])
+=======
         // mainContent.append(displayInfo);
         
        
         console.log(response.drinks[i])
+>>>>>>> b9643e0cbd7c048b0f4ee1aadb79c8ab96c315a3
         
     })
-    console.log(drinkName)
-        
+     
 }
+<<<<<<< HEAD
+function randomDrinks() {
+=======
 
 function randomRecomendation() {
+>>>>>>> b9643e0cbd7c048b0f4ee1aadb79c8ab96c315a3
     event.preventDefault();
 
     $('#mainContent').empty();
