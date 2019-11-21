@@ -2,12 +2,12 @@
 var category = '';
 var apiKey = '9973533';
 
-var randomMealsURL = 'https://www.themealdb.com/api/json/v2/' + apiKey + '/randomselection.php';
+var randomMealsURL = 'https://www.themealdb.com/api/json/v2/' + apiKey + '/random.php';
 var categoryMealURL = 'https://www.themealdb.com/api/json/v2/' + apiKey + '/filter.php?c=' + category;
 
 
 var alcoholType = '';
-var randomDrinksURL = 'https://www.thecocktaildb.com/api/json/v2/' + apiKey + '/randomselection.php';
+var randomDrinksURL = 'https://www.thecocktaildb.com/api/json/v2/' + apiKey + '/random.php';
 var alcoholTypeURL = 'https://www.thecocktaildb.com/api/json/v2/' + apiKey + '/search.php?i=' + alcoholType;
 
 function searchDrinkName() {
@@ -25,23 +25,24 @@ function searchDrinkName() {
         
         var mainContent = $('#mainContent');
         var displayInfo = $("<p id='drinkName'>").text(JSON.stringify(response.drinks));
-        var allDrinks = $("<p id='allDrinks'>").text(JSON.stringify(response.drinks[0].strIngredient1));
         
-        for (i = 0; i < response.length; i++){
-            
+        for (i = 0; i < response.drinks.length; i++){
+            var allDrinks = $("<p id='allDrinks'>").text(JSON.stringify(response.drinks[i].strIngredient1));
+            console.log(response.drinks[i])
+            mainContent.append(allDrinks)
         }
         
         // mainContent.append(displayInfo);
-        mainContent.append(allDrinks)
+        
        
-        console.log(response.drinks[0])
+        console.log(response.drinks[i])
         
     })
     console.log(drinkName)
         
 }
 
-function randomDrinks() {
+function randomRecomendation() {
     event.preventDefault();
 
     $('#mainContent').empty();
