@@ -21,26 +21,33 @@ function searchDrinkName() {
     $.ajax({
         url: drinkNameURL,
         method: 'GET'
+
     }).then(function (response) {
         
         var mainContent = $('#mainContent');
         var displayInfo = $("<p id='drinkName'>").text(JSON.stringify(response.drinks));
-        var allDrinks = $("<p id='allDrinks'>").text(JSON.stringify(response.drinks[0].strIngredient1));
+
+        for (i = 0; i < response.drinks.length; i++){
+        var allDrinks = $("<p id='allDrinks'>").text(JSON.stringify(response.drinks[i].strIngredient1));
         
-        for (i = 0; i < response.length; i++){
-            
+        mainContent.append(allDrinks) 
+        
+
         }
+        // for (i = 0; i < response.drinks.strIngredient.length; i++){
+        //     var drinkIngredients = $("<p id='allIngredients'>").text(JSON.stringify(response.drinks.strIngredient[i]))
+        //     mainContent.append(drinkIngredients)
+        //     console.log(drinkIngredients[i])
+
+        // }
+
         
-        // mainContent.append(displayInfo);
-        mainContent.append(allDrinks)
-       
-        console.log(response.drinks[0])
+        console.log(drinkName) 
+        // console.log(drinkIngredients[i])
         
     })
-    console.log(drinkName)
-        
+     
 }
-
 function randomDrinks() {
     event.preventDefault();
 
