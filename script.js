@@ -2,12 +2,12 @@
 var category = '';
 var apiKey = '9973533';
 
-var randomMealsURL = 'https://www.themealdb.com/api/json/v2/' + apiKey + '/randomselection.php';
+var randomMealsURL = 'https://www.themealdb.com/api/json/v2/' + apiKey + '/random.php';
 var categoryMealURL = 'https://www.themealdb.com/api/json/v2/' + apiKey + '/filter.php?c=' + category;
 
 
 var alcoholType = '';
-var randomDrinksURL = 'https://www.thecocktaildb.com/api/json/v2/' + apiKey + '/randomselection.php';
+var randomDrinksURL = 'https://www.thecocktaildb.com/api/json/v2/' + apiKey + '/random.php';
 var alcoholTypeURL = 'https://www.thecocktaildb.com/api/json/v2/' + apiKey + '/search.php?i=' + alcoholType;
 
 function searchDrinkName() {
@@ -26,6 +26,7 @@ function searchDrinkName() {
         
         var mainContent = $('#mainContent');
         var displayInfo = $("<p id='drinkName'>").text(JSON.stringify(response.drinks));
+<<<<<<< HEAD
 
         for (i = 0; i < response.drinks.length; i++){
         var allDrinks = $("<p id='allDrinks'>").text(JSON.stringify(response.drinks[i].strIngredient1));
@@ -33,6 +34,13 @@ function searchDrinkName() {
         mainContent.append(allDrinks) 
         
 
+=======
+        
+        for (i = 0; i < response.drinks.length; i++){
+            var allDrinks = $("<p id='allDrinks'>").text(JSON.stringify(response.drinks[i].strIngredient1));
+            console.log(response.drinks[i])
+            mainContent.append(allDrinks)
+>>>>>>> b9643e0cbd7c048b0f4ee1aadb79c8ab96c315a3
         }
         // for (i = 0; i < response.drinks.strIngredient.length; i++){
         //     var drinkIngredients = $("<p id='allIngredients'>").text(JSON.stringify(response.drinks.strIngredient[i]))
@@ -42,13 +50,25 @@ function searchDrinkName() {
         // }
 
         
+<<<<<<< HEAD
         console.log(drinkName) 
         // console.log(drinkIngredients[i])
+=======
+        // mainContent.append(displayInfo);
+        
+       
+        console.log(response.drinks[i])
+>>>>>>> b9643e0cbd7c048b0f4ee1aadb79c8ab96c315a3
         
     })
      
 }
+<<<<<<< HEAD
 function randomDrinks() {
+=======
+
+function randomRecomendation() {
+>>>>>>> b9643e0cbd7c048b0f4ee1aadb79c8ab96c315a3
     event.preventDefault();
 
     $('#mainContent').empty();
