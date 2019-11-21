@@ -55,6 +55,16 @@ function randomRecomendation() {
         var displayInfo = $("<p id='test'>").text(JSON.stringify(response));
         mainContent.append(displayInfo);
     })
+
+
+    $.ajax({
+        url: randomMealsURL,
+        method: 'GET'
+    }).then(function (response) {
+        var mainContent = $('#mainContent');
+        var displayInfo = $("<p id='test'>").text(JSON.stringify(response));
+        mainContent.append(displayInfo);
+    });
 }
 
 function searchMealName() {
@@ -78,28 +88,13 @@ function searchMealName() {
     console.log(mealName);
 }
 
-function randomMeals() {
-    event.preventDefault();
-
-    $('#mainContent').empty();
-
-    $.ajax({
-        url: randomMealsURL,
-        method: 'GET'
-    }).then(function (response) {
-        var mainContent = $('#mainContent');
-        var displayInfo = $("<p id='test'>").text(JSON.stringify(response));
-        mainContent.append(displayInfo);
-    });
-}
-
 $(document).ready(function(){
    
     event.preventDefault();
   $(".button-collapse").sideNav();
   });
 
-
+$('#randomButton').on('click', randomRecomendation)
 $('#searchButton').on('click', function(){
     var optionValue = document.getElementById('dropDownBar').value;
     if(optionValue === '1') {
