@@ -23,11 +23,11 @@ function searchDrinkName() {
         method: 'GET'
 
     }).then(function (response) {
-        
+
         var mainContent = $('#mainContent');
         var displayInfo = $("<p id='drinkName'>").text(JSON.stringify(response.drinks));
-        
-        for (i = 0; i < response.drinks.length; i++){
+
+        for (i = 0; i < response.drinks.length; i++) {
             var allDrinks = $("<p id='allDrinks'>").text(JSON.stringify(response.drinks[i].strIngredient1));
             console.log(response.drinks[i])
             mainContent.append(allDrinks)
@@ -39,14 +39,14 @@ function searchDrinkName() {
 
         // }
 
-        
+
         // mainContent.append(displayInfo);
-        
-       
+
+
         console.log(response.drinks[i])
-        
+
     })
-     
+
 }
 
 function randomRecomendation() {
@@ -58,9 +58,29 @@ function randomRecomendation() {
         url: randomDrinksURL,
         method: 'GET'
     }).then(function (response) {
+        console.log(response);
         var mainContent = $('#mainContent');
-        var displayInfo = $("<p id='test'>").text(JSON.stringify(response));
-        mainContent.append(displayInfo);
+        let html = `
+        <img src='${response.drinks[0].strDrinkThumb}'>
+        <p>${response.drinks[0].strDrink}</p>
+        `
+
+for (var i = 1; i<= 15; i++) {
+  let ingredient= "strIngredient" + i;
+  let measure= "strMeasure" + i;
+  if (response.drinks[0][measure] && response.drinks[0][ingredient]) {
+    html += `<p>${response.drinks[0][measure]} of ${response.drinks[0][ingredient]}</p>`
+  }
+}
+
+html += `<p> ${response.drinks[0].strInstructions}</p>`
+
+mainContent.append(html)
+    //     mainContent.append(`
+    //     <img src='${response.drinks[0].strDrinkThumb}'>
+    //     <h2>${response.drinks[0].strDrink}</h2>
+    //     <p>${response.drinks[0].strMeasure1} of ${response.drinks[0].strIngredient1}</p>
+    //     <p> ${response.drinks[0].strInstructions}</p>`);
     })
 
 
@@ -68,9 +88,14 @@ function randomRecomendation() {
         url: randomMealsURL,
         method: 'GET'
     }).then(function (response) {
+        console.log(response);
         var mainContent = $('#mainContent');
-        var displayInfo = $("<p id='test'>").text(JSON.stringify(response));
-        mainContent.append(displayInfo);
+        mainContent.append(`
+            < img src = '${response.meals[0].strMealThumb}' >
+            <h2>${response.meals[0].strMeal}</h2>
+            <p>${response.meals[0].strMeasure1} of ${response.meals[0].streIngredient1}</p>
+            <p>${response.meals[0].strInstructions}</p>
+        `)
     });
 }
 
@@ -95,18 +120,18 @@ function searchMealName() {
     console.log(mealName);
 }
 
-$(document).ready(function(){
-   
+$(document).ready(function () {
+
     event.preventDefault();
-  $(".button-collapse").sideNav();
-  });
+    $(".button-collapse").sideNav();
+});
 
 $('#randomButton').on('click', randomRecomendation)
-$('#searchButton').on('click', function(){
+$('#searchButton').on('click', function () {
     var optionValue = document.getElementById('dropDownBar').value;
-    if(optionValue === '1') {
+    if (optionValue === '1') {
         searchMealName();
-    }else if(optionValue === '2'){
+    } else if (optionValue === '2') {
         searchDrinkName();
     }
 })
