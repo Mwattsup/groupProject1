@@ -2,11 +2,11 @@ body {
     background-image: url(img/backgroundpic.jpg);
     background-size: cover;
     background-position: center;
-    /* min-height: 1000px; */
 }
 
 #main-body {
-    height: 900px;
+    height: 790px;
+    color: grey;
 }
 
 #randomButton {
@@ -19,13 +19,53 @@ img {
 
     height: 300px;
     border-radius: 50px;
-    box-shadow: 10px black;
+    box-shadow: 10px 10px 10px black;
 }
 
-p {
 
-    font-size: 20px;
+iframe{
+
+    border-radius: 50px;
+    box-shadow: 10px 10px 10px black;
+}
+
+img:hover {
+
+    zoom: 1.5;
+}
+
+iframe:hover {
+
+    zoom: 1.5;
+}
+
+i {
+    
+   margin-top: 15px;
+}
+
+#dropDownBar {
+
+    background-color: lightskyblue;
+    border-radius: 15px;
+}
+
+#userInputBox {
+
+    border-radius: 20px;
    
+}
+
+#searchButton {
+    
+    border-radius: 25px;
+    background-color: lightskyblue;
+}
+
+#randomButton {
+
+    border-radius: 25px;
+    background-color: lightskyblue;
 }
 
 
