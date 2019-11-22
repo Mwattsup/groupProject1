@@ -1,3 +1,9 @@
+* {
+
+    font-family: 'Prata', serif;
+    font-size: 15px;
+}
+
 body {
     background-image: url(img/backgroundpic.jpg);
     background-size: cover;
@@ -5,14 +11,23 @@ body {
 }
 
 #main-body {
-    height: 790px;
-    color: grey;
+
+    height: 850px;
+    color: black;
+    
+}
+
+.card-panel {
+
+    background-color: rgb(240, 240, 240);
 }
 
 #randomButton {
 
-    margin: 10px;
-    width: 153px;
+    margin: 25px;
+    width: 175px;
+    border-radius: 25px;
+    background-color: orange;
 }
 
 img {
@@ -41,43 +56,41 @@ iframe:hover {
 
 i {
     
-   margin-top: 15px;
+   margin-top: 0px;
 }
 
 #dropDownBar {
 
     background-color: lightskyblue;
     border-radius: 15px;
+    width: 100px;
 }
 
 #userInputBox {
 
     border-radius: 20px;
+    margin: 0px;
+    width: 500px;
+    margin-top: 30px;
    
 }
 
 #searchButton {
     
-    border-radius: 25px;
+    border-radius: 20px;
     background-color: lightskyblue;
 }
 
 #randomButton {
 
-    border-radius: 25px;
-    background-color: lightskyblue;
+    margin-top: 50px;
 }
-
-
-
-
-
-
 
 p{
     font-size-adjust: initial;
   letter-spacing: 1px;
   text-align: start;
+  font-size: 25px;
 }
 
 li{
@@ -85,7 +98,21 @@ li{
     font-size: 16px;
     letter-spacing: 1px;
    text-align: left;
+   font-size: 25px;
 }
+
+#mainContent {
+    
+    background-color: rgb(236, 236, 236);
+}
+
+
+#label {
+
+    float: left;
+    margin-left: 2px;
+}
+
 
 
  
