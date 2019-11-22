@@ -5,6 +5,7 @@
 }
 
 body {
+
     background-image: url(img/backgroundpic.jpg);
     background-size: contain;
     background-position: center;
@@ -15,6 +16,18 @@ body {
     min-height: 850px;
     color: black;
     
+}
+
+#mainBodyContact {
+
+    min-height: 850px;
+    color: black;
+}
+
+#contactPage{
+
+    background-color:lightsteelblue;
+    padding: 50px;
 }
 
 .card-panel {
@@ -87,6 +100,7 @@ i {
 }
 
 p{
+
     font-size-adjust: initial;
   letter-spacing: 1px;
   text-align: start;
@@ -94,6 +108,7 @@ p{
 }
 
 li{
+
     column-gap: 0vmin;
     font-size: 16px;
     letter-spacing: 1px;
@@ -103,7 +118,9 @@ li{
 
 #mainContent {
     
-    background-color: rgb(240), 240, 240);
+    background-color: rgb(240, 240, 240);
+    border-radius: 100px;
+    
 }
 
 
@@ -114,5 +131,32 @@ li{
 }
 
  #about{
+
      background-color: lightgoldenrodyellow;
  }
+
+ h3 {
+
+    color: white;
+    font-size: 50px;
+    margin: 50px;
+ }
+
+ #mainBodyAbout {
+
+    min-height: 700px;
+    color: black;
+    align-content: center;
+    margin-top: 100px;
+    
+}
+
+#teamMembers {
+
+    margin-left: 25%
+}
+
+#about {
+
+    border-radius: 100px;
+}
