@@ -1,3 +1,9 @@
+/* Though it works a bit, this CSS isn't organized at all. I had to create a bunch of new ID's just to 
+get some of these things to work and they are just randombly thrown around in this code. 
+I noticed this also doesn't work well when making the screen smaller. I wonder if 
+we can use boostrap as well as the current CSS library in unison?*/
+
+
 * {
 
     font-family: 'Prata', serif;
