@@ -16,13 +16,13 @@
     <style>
         body {
             background-image: url(img/Mar.jpg);
-            background-size: cover;
+            background-size: contain;
             background-position: center;
             min-height: 1000px;
         }
 
         #main-body {
-            height: 900px;
+            min-height: 900px;
         }
 
         #label1 {
@@ -72,9 +72,9 @@
 
                     
                     <select class="browser-default" id='dropDownBar' name="optionBar">
-                        <option value="1" selected>name of food</option>
-                        <option value="2">name of drink</option>
-                        <option value="3">yee yee</option>
+                        <option value="1" selected>Name of Food</option>
+                        <option value="2">Name of Drink</option>
+                        
                     </select>
                     <label for="optionBar">Select an Option</label>
                 </div>
@@ -89,9 +89,11 @@
                 <button class="btn waves-effect waves-light" type="submit" id="searchButton" name="action">Search
                     <i class="material-icons right">search</i>
                 </button>
-                <button class="btn waves-effect waves-light" type="submit" id="randomButton" name="action">Random
-                </button>
+            
+                
             </div>
+            <button class="btn waves-effect waves-light" type="submit" id="randomButton" name="action">Random
+            </button>
         </div>
 
 

@@ -9,8 +9,18 @@
 
 
 
+p{
+    font-size-adjust: initial;
+  letter-spacing: 1px;
+  text-align: start;
+}
 
-
+li{
+    column-gap: 0vmin;
+    font-size: 16px;
+    letter-spacing: 1px;
+   text-align: left;
+}
 
 
  
