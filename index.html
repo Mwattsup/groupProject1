@@ -13,30 +13,14 @@
 
 
     <title>Food and Drinks</title>
-    <style>
-        body {
-            background-image: url(img/Mar.jpg);
-            background-size: cover;
-            background-position: center;
-            min-height: 1000px;
-        }
-
-        #main-body {
-            height: 900px;
-        }
-
-        #label1 {
-            font-size: 18px;
-            color: black;
-        }
-    </style>
+    
 
 </head>
 
 <body>
     <header>
 
-        <nav class="nav-wrapper teal accent-4">
+        <nav id="navBar" class="nav-wrapper teal accent-4">
             <div class="container">
                 <a href="#" data-activates="mobile-demo" class="button-collapse show-on-med-and-down">
                     <i class="material-icons">menu</i></a>
@@ -72,15 +56,14 @@
 
                     
                     <select class="browser-default" id='dropDownBar' name="optionBar">
-                        <option value="1" selected>name of food</option>
-                        <option value="2">name of drink</option>
-                        <option value="3">yee yee</option>
+                        <option value="1" selected>Foods</option>
+                        <option value="2">Drinks</option>
                     </select>
                     <label for="optionBar">Select an Option</label>
                 </div>
                 </br>
 
-                <div class="input-field col s12 l6 grey lighten-5 indigo text-darken-4">
+                <div class="input-field col s12 l6 green lighten-4 black text-darken-6">
                     <i class="material-icons prefix">search</i>
                     <input id="userInput" type="text" class="validate">
                     <label for="search">Search</label>
@@ -99,7 +82,7 @@
         <div class="row center">
             <div class="col s12 l12">
                 <div class="card-panel" id="mainContent" class="z-depth-5">
-                    <span class="black-text">See below Articles</span>
+                    <span class="black-text">See Below</span>
                     <hr>
                 </div>
             </div>
@@ -115,7 +98,7 @@
         <div class="container">
             <dvi class="row">
                 <div class="col s12 l6">
-                    <P>Copyright</P>
+                    <div>Copyright by MMC incorporated.</div>
                 </div>
             </dvi>
         </div>

@@ -1,11 +1,36 @@
-#headRow{
-    background: url(img/Mar.jpg) no-repeat;
+body {
+    background-image: url(img/backgroundpic.jpg);
     background-size: cover;
-    width: 100%;
-    height: 450px;
-    margin-top: 0px;
-    margin-left: 0px;
+    background-position: center;
+    /* min-height: 1000px; */
 }
+
+#main-body {
+    height: 900px;
+}
+
+#randomButton {
+
+    margin: 10px;
+    width: 153px;
+}
+
+img {
+
+    height: 300px;
+    border-radius: 50px;
+    box-shadow: 10px black;
+}
+
+p {
+
+    font-size: 20px;
+   
+}
+
+
+
+
 
 
 
