@@ -149,11 +149,11 @@ function searchMealName() {
             mealDiv.append(image);
 
             var area = response.meals[i].strArea;
-            var pOne = $("<p>").html("Country: " + area);
+            var pOne = $("<h5>").html("Country: " + area);
             mealDiv.append(pOne);
 
             var name = response.meals[i].strMeal;
-            var pTwo = $("<h3>").html(name);
+            var pTwo = $("<h5>").html(name);
             mealDiv.append(pTwo);
             var meal = response.meals[i];
 
@@ -170,7 +170,7 @@ function searchMealName() {
 
             });
             var instruction = response.meals[i].strInstructions;
-            var pFour = $("<p>").html("Instructions: " + instruction);
+            var pFour = $("<p>").html("Instructions:  " + instruction, null, 2 );
             mealDiv.append(pFour);
 
             const newInnerHTML = `
