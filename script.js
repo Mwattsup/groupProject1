@@ -21,31 +21,53 @@ function searchDrinkName() {
     $.ajax({
         url: drinkNameURL,
         method: 'GET'
-
     }).then(function (response) {
+        console.log(response);
 
-        var mainContent = $('#mainContent');
-        var displayInfo = $("<p id='drinkName'>").text(JSON.stringify(response.drinks));
+        for (var i = 0; i < response.drinks.length; i++) {
+            var drinkDiv = $("#mainContent");
 
-        for (i = 0; i < response.drinks.length; i++) {
-            var allDrinks = $("<p id='allDrinks'>").text(JSON.stringify(response.drinks[i].strIngredient1));
-            console.log(response.drinks[i])
-            mainContent.append(allDrinks)
-        }
-        // for (i = 0; i < response.drinks.strIngredient.length; i++){
-        //     var drinkIngredients = $("<p id='allIngredients'>").text(JSON.stringify(response.drinks.strIngredient[i]))
-        //     mainContent.append(drinkIngredients)
-        //     console.log(drinkIngredients[i])
+            var imgURL = response.drinks[i].strDrinkThumb;
+            var image = $("<img>").attr("src", imgURL);
+            drinkDiv.append(image);
 
-        // }
+            var name = response.drinks[i].strDrink;
+            var pTwo = $("<h3>").html(name);
+            drinkDiv.append(pTwo);
+            var drink = response.drinks[i];
+
+            let index = 1;
+            let ingredientArray = [];
+            while (drink['strIngredient' + index]) {
+                ingredientArray.push({ name: drink['strIngredient' + index], amount: drink['strMeasure' + index] ? drink['strMeasure' + index] : "A dash " });
+                index++;
+            }
+
+            ingredientArray.forEach((ingredient) => {
+                var pThree = $("<li>").text(`${ingredient.amount} of ${ingredient.name}`);
+                drinkDiv.append(pThree);
+
+            });
+            var instruction = response.drinks[i].strInstructions;
+            var pFour = $("<p>").html("Instructions: " + instruction);
+            drinkDiv.append(pFour);
+
+            const newInnerHTML = `
+		<div class="row">
+			
+		${
+                response.drinks[i].strDrinkThumb ? `
+		<div class="row">
+		</div>`
+                    : ''
+                }
+	`;
+
+            drinkDiv.append(newInnerHTML);
+        };
 
 
-        // mainContent.append(displayInfo);
-
-
-        console.log(response.drinks[i])
-
-    })
+    });
 
 }
 
@@ -62,27 +84,21 @@ function randomRecomendation() {
         var mainContent = $('#mainContent');
         let html = `
         <img src='${response.drinks[0].strDrinkThumb}'>
-        <p>${response.drinks[0].strDrink}</p>
+        <h3>${response.drinks[0].strDrink}</h3>
         `
 
-for (var i = 1; i<= 15; i++) {
-  let ingredient= "strIngredient" + i;
-  let measure= "strMeasure" + i;
-  if (response.drinks[0][measure] && response.drinks[0][ingredient]) {
-    html += `<p>${response.drinks[0][measure]} of ${response.drinks[0][ingredient]}</p>`
-  }
-}
+        for (var i = 1; i <= 15; i++) {
+            let ingredient = "strIngredient" + i;
+            let measure = "strMeasure" + i;
+            if (response.drinks[0][measure] && response.drinks[0][ingredient]) {
+                html += `<li>${response.drinks[0][measure]} of ${response.drinks[0][ingredient]}</li>`
+            }
+        }
 
-html += `<p> ${response.drinks[0].strInstructions}</p>`
+        html += `<p> ${response.drinks[0].strInstructions}</p>`
 
-mainContent.append(html)
-    //     mainContent.append(`
-    //     <img src='${response.drinks[0].strDrinkThumb}'>
-    //     <h2>${response.drinks[0].strDrink}</h2>
-    //     <p>${response.drinks[0].strMeasure1} of ${response.drinks[0].strIngredient1}</p>
-    //     <p> ${response.drinks[0].strInstructions}</p>`);
+        mainContent.append(html)
     })
-
 
     $.ajax({
         url: randomMealsURL,
@@ -90,12 +106,23 @@ mainContent.append(html)
     }).then(function (response) {
         console.log(response);
         var mainContent = $('#mainContent');
-        mainContent.append(`
-            < img src = '${response.meals[0].strMealThumb}' >
-            <h2>${response.meals[0].strMeal}</h2>
-            <p>${response.meals[0].strMeasure1} of ${response.meals[0].streIngredient1}</p>
-            <p>${response.meals[0].strInstructions}</p>
-        `)
+        let html = `
+        <img src='${response.meals[0].strMealThumb}'>
+        <p>Country: ${response.meals[0].strArea}</p>
+        <h3>${response.meals[0].strMeal}</h3>
+        `
+
+        for (var i = 1; i <= 15; i++) {
+            let ingredient = "strIngredient" + i;
+            let measure = "strMeasure" + i;
+            if (response.meals[0][measure] && response.meals[0][ingredient]) {
+                html += `<li>${response.meals[0][measure]} of ${response.meals[0][ingredient]}</li>`
+            }
+        }
+
+        html += `<p> ${response.meals[0].strInstructions}</p>`
+
+        mainContent.append(html)
     });
 }
 
@@ -103,8 +130,8 @@ function searchMealName() {
     event.preventDefault();
 
     var mealSpaceName = document.getElementById('userInput').value;
-    var mealName = mealSpaceName.replace(/ /g, '_');
-    var mealNameURL = 'https://www.themealdb.com/api/json/v2/' + apiKey + '/search.php?s=' + mealName;
+
+    var mealNameURL = 'https://www.themealdb.com/api/json/v2/' + apiKey + '/search.php?s=' + mealSpaceName;
 
     $('#mainContent').empty();
 
@@ -112,13 +139,64 @@ function searchMealName() {
         url: mealNameURL,
         method: 'GET'
     }).then(function (response) {
-        console.log(response.meals[0]);
-        var mainContent = $('#mainContent');
-        var displayInfo = $("<p id='test'>").text(JSON.stringify(response.meals[0], null, 2));
-        mainContent.append(displayInfo);
-    })
-    console.log(mealName);
-}
+        console.log(response);
+
+        for (var i = 0; i < response.meals.length; i++) {
+            var mealDiv = $("#mainContent");
+
+            var imgURL = response.meals[i].strMealThumb;
+            var image = $("<img>").attr("src", imgURL);
+            mealDiv.append(image);
+
+            var area = response.meals[i].strArea;
+            var pOne = $("<p>").html("Country: " + area);
+            mealDiv.append(pOne);
+
+            var name = response.meals[i].strMeal;
+            var pTwo = $("<h3>").html(name);
+            mealDiv.append(pTwo);
+            var meal = response.meals[i];
+
+            let index = 1;
+            let ingredientArray = [];
+            while (meal['strIngredient' + index]) {
+                ingredientArray.push({ name: meal['strIngredient' + index], amount: meal['strMeasure' + index] ? meal['strMeasure' + index] : "A dash " });
+                index++;
+            }
+
+            ingredientArray.forEach((ingredient) => {
+                var pThree = $("<li>").text(`${ingredient.amount} of ${ingredient.name}`);
+                mealDiv.append(pThree);
+
+            });
+            var instruction = response.meals[i].strInstructions;
+            var pFour = $("<p>").html("Instructions: " + instruction);
+            mealDiv.append(pFour);
+
+            const newInnerHTML = `
+		<div class="row">
+			
+		${
+                response.meals[i].strMealThumb ? `
+		<div class="row">
+			<h5>Video Recipe</h5>
+			<div class="videoWrapper">
+				<iframe width="420" height="315"
+				src="https://www.youtube.com/embed/${response.meals[i].strYoutube.slice(-11)}">
+				</iframe>
+			</div>
+		</div>`
+                    : ''
+                }
+	`;
+
+            mealDiv.append(newInnerHTML);
+        };
+
+
+    });
+
+};
 
 $(document).ready(function () {
 
