@@ -6,13 +6,13 @@
 
 body {
     background-image: url(img/backgroundpic.jpg);
-    background-size: cover;
+    background-size: contain;
     background-position: center;
 }
 
 #main-body {
 
-    height: 850px;
+    min-height: 850px;
     color: black;
     
 }
