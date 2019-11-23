@@ -39,6 +39,7 @@ body {
 .card-panel {
 
     background-color: rgb(240, 240, 240);
+    margin-top: 20px;
 }
 
 #randomButton {
