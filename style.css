@@ -12,9 +12,7 @@ we can use boostrap as well as the current CSS library in unison?*/
 
 body {
 
-    background-image: url(img/backgroundpic.jpg);
-    background-size: contain;
-    background-position: center;
+    background-color: rgb(99, 73, 73)
 }
 
 #main-body {
@@ -166,4 +164,13 @@ li{
 #about {
 
     border-radius: 100px;
+}
+
+footer {
+
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
